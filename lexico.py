@@ -2,20 +2,40 @@ import re
 
 # Definição dos tokens (expressões regulares)
 token_specification = [
+    # Palavras-chave
     ("IF",            r'\bif\b'),
     ("ELSE",          r'\belse\b'),
     ("WHILE",         r'\bwhile\b'),
     ("TRUE",          r'\btrue\b'),
     ("FALSE",         r'\bfalse\b'),
-    ("NUMERO_REAL",   r'\d+\.\d+(?!\d)'),   # número real, ex: 20.5
-    ("NUMERO_INT",    r'\d+(?!\.\d)'),      # inteiro, mas não seguido de ponto
+
+    # Operadores relacionais e lógicos
+    ("IGUALDADE",     r'=='),
+    ("DIFERENTE",     r'!='),
+    ("MAIOR_IGUAL",   r'>='),
+    ("MENOR_IGUAL",   r'<='),
+    ("AND",           r'&&'),
+    ("OR",            r'\|\|'),
+
+    # Operadores simples
+    ("ATRIBUICAO",    r'='),
+    ("MAIOR",         r'>'),
+    ("MENOR",         r'<'),
+    ("OPERADOR",      r'[+\-*/]'),
+
+    # Números e identificadores
+    ("NUMERO_REAL",   r'\d+\.\d+(?!\d)'),
+    ("NUMERO_INT",    r'\d+(?!\.\d)'),
     ("IDENTIFICADOR", r'[a-zA-Z_][a-zA-Z0-9_]*'),
-    ("OPERADOR",      r'[+\-*/=<>!]'),      # já pega alguns operadores básicos
+
+    # Símbolos
     ("ABRE_PAR",      r'\('),
     ("FECHA_PAR",     r'\)'),
     ("ABRE_CHAVE",    r'\{'),
     ("FECHA_CHAVE",   r'\}'),
     ("PONTO_VIRGULA", r';'),
+
+    # Espaços e erro
     ("ESPACO",        r'[ \t\n]+'),
     ("ERRO",          r'.'),
 ]
@@ -39,11 +59,11 @@ def analisar_codigo(codigo):
 
 # 🔹 Testando
 codigo = """
-if (x == true) {
-    y = 10;
+if (x == true && y != false) {
+    z = (x + y) * 2;
 } else {
-    while (y > 1.1) {
-        y = y - 1;
+    while (z >= 10 || y <= 5) {
+        z = z - 1;
     }
 }
 """
