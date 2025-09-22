@@ -1,0 +1,7 @@
+if (x == true && y != false) {
+    z = (x + y) * 2;
+} else {
+    while (z >= 10 || y <= 5) {
+        z = z - 1.1;
+    }
+}

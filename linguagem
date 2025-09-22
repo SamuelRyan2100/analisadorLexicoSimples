@@ -21,3 +21,5 @@ Delimitadores → ( ) { } ;
 Espaços e quebras de linha → ignorados pelo léxico
 
 👉 Em resumo, a linguagem aceita é uma linguagem de programação imperativa simplificada, com controle de fluxo (if, else, while), expressões aritméticas, booleanas e atribuição.
+
+# 🔹 Testando codigo = """ if (x == true && y != false) { z = (x + y) * 2; } else { while (z >= 10 || y <= 5) { z = z - 1.1; } } """

@@ -57,17 +57,13 @@ def analisar_codigo(codigo):
             tokens.append((tipo, valor))
     return tokens
 
-# 🔹 Testando
-codigo = """
-if (x == true && y != false) {
-    z = (x + y) * 2;
-} else {
-    while (z >= 10 || y <= 5) {
-        z = z - 1;
-    }
-}
-"""
+
+
+# Ler código
+with open("codigo.txt", "r", encoding="utf-8") as f:
+    codigo = f.read()
 
 resultado = analisar_codigo(codigo)
+
 for token in resultado:
     print(token)
