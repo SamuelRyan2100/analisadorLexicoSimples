@@ -1,6 +1,6 @@
 import re
 
-# Definição dos tokens (expressões regulares)
+# Definição dos tokens 
 token_specification = [
     # Palavras-chave
     ("IF",            r'\bif\b'),
@@ -49,10 +49,11 @@ def analisar_codigo(codigo):
     for match in token_re.finditer(codigo):
         tipo = match.lastgroup
         valor = match.group()
+        
         if tipo == "ESPACO":
             continue
         elif tipo == "ERRO":
-            raise SyntaxError(f"Caractere inválido: {valor}")
+            raise SyntaxError(f"Erro léxico: {valor}")
         else:
             tokens.append((tipo, valor))
     return tokens
